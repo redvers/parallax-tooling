@@ -1,7 +1,7 @@
 { stdenv, wget, bison, flex, expat, fetchurl, texinfo, fetchgit, file }:
 
 let
-  version = "2018-04-14r0";
+  version = "2018-04-14r1";
   srcs = import ./srcs.nix { inherit fetchgit; inherit fetchurl; };
 
   in stdenv.mkDerivation rec {
