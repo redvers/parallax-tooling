@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub }:
 
   stdenv.mkDerivation rec {
-    version = "2018-06-19";
+    version = "2018-12-06r0";
     name = "spinsim-${version}";
     OPT="-Wno-implicit-fallthrough -Wno-format-security";
 
@@ -10,8 +10,8 @@
     src = fetchFromGitHub {
       owner = "parallaxinc";
       repo  = "spinsim";
-      rev   = "12851674614357919af154bf110846d9eb25b5c5";
-      sha256 = "0pj6rd0brx9brgncb78nihr2bvg9fd5likwh6g0c53179ag8vx8a";
+      rev   = "bb903fc36f7e6762e56c4b39bdb888c895322a02";
+      sha256 = "1lnvz914q51jjich4nvwnh3y173plg4ikgkv4b5b442pabghb8fx";
     };
 
   postUnpack = ''
@@ -20,11 +20,11 @@
 
   installPhase = ''
     mkdir -p $out/bin
-    mv build/spinsim $out/bin/spinsim
+    mv build/spinsim $out/bin/spinsim-master
   '';
 
   meta = with stdenv.lib; {
-    description = "A simulator for the Parallax Propeller (P1 & P2)";
+    description = "A simulator for the Parallax Propeller (P1 & P2), master branch";
     homepage = https://github.com/parallaxinc/spinsim;
     license = licenses.gpl3;
     maintainers = [ maintainers.redvers ];

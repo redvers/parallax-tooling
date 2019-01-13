@@ -1,14 +1,14 @@
 { stdenv, wget, bison, flex, expat, fetchurl, texinfo, fetchgit, file }:
 
 let
-  version = "2018-04-14";
+  version = "2018-04-14r0";
   srcs = import ./srcs.nix { inherit fetchgit; inherit fetchurl; };
 
   in stdenv.mkDerivation rec {
   name = "propeller-gcc-${version}";
   CFLAGS="-Wno-implicit-fallthrough -Wno-format-security";
 
-  buildInputs = [ texinfo wget texinfo bison flex expat ];
+  buildInputs = [ texinfo wget texinfo bison flex expat file ];
 #  installFlags = [ "INSTALL=$(out)" ];
 
   src = srcs.pgcc;
