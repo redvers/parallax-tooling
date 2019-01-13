@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, propeller-gcc }:
 
   stdenv.mkDerivation rec {
-    version = "2019-01-12r0";
+    version = "2019-01-12r1";
     name = "p2gcc-${version}";
 
     buildInputs = [ propeller-gcc ];
