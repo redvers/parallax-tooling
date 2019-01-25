@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, propeller-gcc }:
 
   stdenv.mkDerivation rec {
-    version = "2019-01-18r0";
+    version = "2019-01-23r1";
     name = "p2gcc-${version}";
 
     buildInputs = [ propeller-gcc ];
@@ -9,8 +9,8 @@
     src = fetchFromGitHub {
       owner = "davehein";
       repo  = "p2gcc";
-      rev   = "387977bc4fdf9a9a70fe2442a33d01731ecbce34";
-      sha256 = "0zxrdxhgwzz92rbcxwrwdbz496q498ch3skgy4p6l4yw9yg2h27d";
+      rev   = "fcfed297ab9f63c050ee2c436bb9b74abdb4f0d0";
+      sha256 = "0y2hiijkbl8m2jipc02n61pfvvnlxvgdmclzf6pkrcqr3l7b9nql";
     };
 
   postUnpack = ''
