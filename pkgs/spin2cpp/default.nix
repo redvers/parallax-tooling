@@ -1,7 +1,7 @@
 { stdenv, bison, fetchFromGitHub }:
 
   stdenv.mkDerivation rec {
-    version = "2018-11-03r0";
+    version = "2019-02-09r0";
     name = "spin2cpp-${version}";
 
     buildInputs = [ bison ];
@@ -9,8 +9,8 @@
     src = fetchFromGitHub {
       owner = "totalspectrum";
       repo  = "spin2cpp";
-      rev   = "b0762a810c46c08a1ffe06a9817c29cdd0e9834b";
-      sha256 = "1i2jznqharj9azsh6ww3d02k9rrh04amfjr1frm9j91q901fgkx8";
+      rev   = "7b8129e79125cc9643c8484c9fea7c64a78da365";
+      sha256 = "19wwnf7h20hv86vrsa7f9268n6s3jga5jbvwvf6r8i656gry67j6";
     };
 
   installPhase = ''
