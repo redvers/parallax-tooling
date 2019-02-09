@@ -1,7 +1,7 @@
 { stdenv, bison, fetchFromGitHub }:
 
   stdenv.mkDerivation rec {
-    version = "2019-02-09r0";
+    version = "2019-02-09r1";
     name = "spin2cpp-${version}";
 
     buildInputs = [ bison ];
