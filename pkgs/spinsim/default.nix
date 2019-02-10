@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub }:
 
   stdenv.mkDerivation rec {
-    version = "2018-12-06r0";
+    version = "2018-12-06r1";
     name = "spinsim-${version}";
     OPT="-Wno-implicit-fallthrough -Wno-format-security";
 
@@ -20,7 +20,7 @@
 
   installPhase = ''
     mkdir -p $out/bin
-    mv build/spinsim $out/bin/spinsim-master
+    mv build/spinsim $out/bin/
   '';
 
   meta = with stdenv.lib; {

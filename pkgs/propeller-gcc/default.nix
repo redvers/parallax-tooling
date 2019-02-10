@@ -1,14 +1,14 @@
-{ stdenv, wget, bison, flex, expat, fetchurl, texinfo, fetchgit, file }:
+{ stdenv, wget, bison, flex, expat, fetchurl, texinfo, fetchgit, file, openspin }:
 
 let
-  version = "2018-04-14r2";
+  version = "2018-04-14r3";
   srcs = import ./srcs.nix { inherit fetchgit; inherit fetchurl; };
 
   in stdenv.mkDerivation rec {
   name = "propeller-gcc-${version}";
   CFLAGS="-Wno-implicit-fallthrough -Wno-format-security";
 
-  buildInputs = [ texinfo wget texinfo bison flex expat file ];
+  buildInputs = [ texinfo wget texinfo bison flex expat file openspin ];
 #  installFlags = [ "INSTALL=$(out)" ];
 
   src = srcs.pgcc;
@@ -19,9 +19,10 @@ let
     ./spinsim-format.patch
   ];
 
-#  buildPhase = ''
-#    make gcc libstdc++ libgcc lib lib-cog lib-tiny loader
-#  '';
+  buildPhase = ''
+    make binutils gcc lib-cog libgcc lib lib-tiny loader libstdc++
+#    make binutils gcc lib-cog libgcc lib lib-tiny openspin spin2cpp loader spinsim libstdc++
+  '';
 
   installPhase = ''
     make install
